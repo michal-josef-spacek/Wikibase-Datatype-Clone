@@ -1,0 +1,9 @@
+CONCEPT
+=======
+Wikibase::Datatype helper for cloning.
+
+Main functionality:
+* Simple clone
+* Clone with filters
+** Remove something
+** Add something
