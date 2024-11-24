@@ -11,6 +11,7 @@ use Readonly;
 use Scalar::Util qw(blessed);
 
 Readonly::Array our @SKIP_METHODS => qw(BUILD Readonly decode_utf8 err extends has new none);
+Readonly::Scalar our $BASE_CLASS => 'Wikibase::Datatype';
 
 our $VERSION = 0.01;
 
@@ -32,11 +33,11 @@ sub clone {
 	if (! defined $obj
 		|| ! blessed($obj)) {
 
-		err "Data object must be a 'Wikibase::Datatype::*' instance.";
+		err "Data object must be a '".$BASE_CLASS."::*' instance.";
 	}
 	my $base_class = $self->_base_class($obj);
 	if ($base_class !~ m/^Wikibase::Datatype/ms) {
-		err "Data object must be a 'Wikibase::Datatype::*' instance.";
+		err "Data object must be a '".$BASE_CLASS."::*' instance.";
 	}
 
 	# List of methods.
@@ -59,7 +60,7 @@ sub _base_class {
 	my $class = blessed($obj);
 	my @parents = do { no strict 'refs'; @{"${class}::ISA"} };
 	while (@parents) {
-		if ($parents[0] ne 'Mo::Object') {
+		if ($parents[0] =~ m/^$BASE_CLASS/ms) {
 			$class = $parents[0];
 			@parents = do { no strict 'refs'; @{"${class}::ISA"} };
 		} else {
