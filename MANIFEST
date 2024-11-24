@@ -18,5 +18,10 @@ META.yml
 README
 t/Wikibase-Datatype-Clone/01-use.t
 t/Wikibase-Datatype-Clone/02-version.t
+t/Wikibase-Datatype-Clone/03-new.t
+t/Wikibase-Datatype-Clone/04-clone-form.t
+t/Wikibase-Datatype-Clone/05-clone-item.t
+t/Wikibase-Datatype-Clone/06-clone-lexeme.t
+t/Wikibase-Datatype-Clone/07-clone-mediainfo.t
 xt/Wikibase-Datatype-Clone/01-pod_coverage.t
 xt/Wikibase-Datatype-Clone/02-pod.t

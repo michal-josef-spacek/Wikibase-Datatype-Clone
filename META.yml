@@ -22,6 +22,12 @@ no_index:
     - t
     - xt
 requires:
+  Class::Inspector: 0
+  Class::Utils: 0.03
+  Error::Pure: 0.15
+  List::Util: 1.33
+  Readonly: 0
+  Scalar::Util: 0
   perl: 5.6.2
 resources:
   bugtracker: https://github.com/michal-josef-spacek/Wikibase-Datatype-Clone/issues
