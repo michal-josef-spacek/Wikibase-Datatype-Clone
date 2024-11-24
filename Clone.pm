@@ -29,11 +29,13 @@ sub new {
 sub clone {
 	my ($self, $obj) = @_;
 
-	my $base_class = $self->_base_class($obj);
 	if (! defined $obj
-		|| ! blessed($obj)
-		|| $base_class !~ m/^Wikibase::Datatype/ms) {
+		|| ! blessed($obj)) {
 
+		err "Data object must be a 'Wikibase::Datatype::*' instance.";
+	}
+	my $base_class = $self->_base_class($obj);
+	if ($base_class !~ m/^Wikibase::Datatype/ms) {
 		err "Data object must be a 'Wikibase::Datatype::*' instance.";
 	}
 
@@ -57,7 +59,7 @@ sub _base_class {
 	my $class = blessed($obj);
 	my @parents = do { no strict 'refs'; @{"${class}::ISA"} };
 
-	return $parents[0];
+	return $parents[0] || $class;
 }
 
 sub _methods {
