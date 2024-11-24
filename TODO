@@ -5,7 +5,10 @@ TODO
 3. Add recurse clonning
 4. Add support for removing of some method.
 5. Add support for adding of some method value.
-6.
+6. Add fixtures for Wikibase::Datatype::Value* classes to test.
+7. Fix issue with base class in case of fixture of Datatype::Value
+8. Check ref in tests, not isa_ok() after fix of 7)
+9.
 
 Applied
 =======
