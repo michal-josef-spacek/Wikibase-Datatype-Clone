@@ -10,7 +10,7 @@ use List::Util qw(any);
 use Readonly;
 use Scalar::Util qw(blessed);
 
-Readonly::Array our @SKIP_METHODS => qw(BUILD decode_utf8 err extends has new);
+Readonly::Array our @SKIP_METHODS => qw(BUILD Readonly decode_utf8 err extends has new none);
 
 our $VERSION = 0.01;
 
