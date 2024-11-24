@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 
-use Test::More 'tests' => 2;
+use Test::More 'tests' => 3;
 use Test::NoWarnings;
 use Unicode::UTF8 qw(decode_utf8);
 use Wikibase::Datatype::Clone;
@@ -15,3 +15,4 @@ my $source = Wikibase::Datatype::Value::Monolingual->new(
 );
 my $clone = $obj->clone($source);
 isa_ok($clone, 'Wikibase::Datatype::Value');
+is(ref $clone, 'Wikibase::Datatype::Value', 'Check base class.');

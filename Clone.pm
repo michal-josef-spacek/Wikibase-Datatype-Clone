@@ -58,8 +58,16 @@ sub _base_class {
 
 	my $class = blessed($obj);
 	my @parents = do { no strict 'refs'; @{"${class}::ISA"} };
+	while (@parents) {
+		if ($parents[0] ne 'Mo::Object') {
+			$class = $parents[0];
+			@parents = do { no strict 'refs'; @{"${class}::ISA"} };
+		} else {
+			@parents = ();
+		}
+	}
 
-	return $parents[0] || $class;
+	return $class;
 }
 
 sub _methods {
